@@ -10,6 +10,10 @@ public class RectangleObserver implements Observer {
     // Write your code here!
     private RectangleWarehouse warehouse;
 
+    public RectangleObserver() {
+        this.warehouse = RectangleWarehouse.getInstance();
+    }
+
     public RectangleObserver(RectangleWarehouse warehouse) {
         this.warehouse = warehouse;
     }
