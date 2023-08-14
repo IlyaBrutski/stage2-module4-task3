@@ -17,14 +17,10 @@ public class ChainParserBuilder {
 
     public AbstractTextParser build() {
         // Write your code here!
-        AbstractTextParser firstParser = parsers.get(0);
-        AbstractTextParser currentParser = firstParser;
-        for (int i = 1; i < parsers.size(); i++) {
-            AbstractTextParser nextParser = parsers.get(i);
-            currentParser.setNextParser(nextParser);
-            currentParser = nextParser;
+        for (int i = 0; i < parsers.size() - 1; i++) {
+            parsers.get(i).setNextParser(parsers.get(i + 1));
         }
-        return firstParser;
+        return parsers.get(0);
         //return null;
     }
 }

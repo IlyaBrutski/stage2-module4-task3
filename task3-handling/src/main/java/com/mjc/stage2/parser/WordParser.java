@@ -15,14 +15,11 @@ public class WordParser extends AbstractTextParser {
         super(nextParser);
     }
 
-    @Override
     public void parse(AbstractTextComponent abstractTextComponent, String string) {
-        TextComponent wordComponent = new TextComponent(TextComponentType.WORD);
-        char[] symbols = string.toCharArray();
-        for (char symbol : symbols) {
-            SymbolLeaf symbolLeaf = new SymbolLeaf(symbol);
-            wordComponent.add(symbolLeaf);
+        String[] characters = string.split("");
+        for (String character : characters) {
+            AbstractTextComponent textComponent = new SymbolLeaf(character.charAt(0));
+            abstractTextComponent.add(textComponent);
         }
-        abstractTextComponent.add(wordComponent);
     }
 }

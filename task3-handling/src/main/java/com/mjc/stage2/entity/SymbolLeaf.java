@@ -11,22 +11,18 @@ public class SymbolLeaf extends AbstractTextComponent {
         this.value = value;
     }
 
-    @Override
     public String operation() {
         return String.valueOf(value);
     }
 
-    @Override
     public void add(AbstractTextComponent textComponent) {
-        throw new UnsupportedOperationException("Cannot add to a leaf node");
+        throw new UnsupportedOperationException();
     }
 
-    @Override
     public void remove(AbstractTextComponent textComponent) {
-        throw new UnsupportedOperationException("Cannot remove from a leaf node");
+        throw new UnsupportedOperationException();
     }
 
-    @Override
     public int getSize() {
         return 1;
     }
