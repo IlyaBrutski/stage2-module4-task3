@@ -7,5 +7,5 @@ public interface Observable {
 
     void removeObserver(Observer o);
 
-    void notifyObserver(RectangleEvent event);
+    void notifyObserver();
 }

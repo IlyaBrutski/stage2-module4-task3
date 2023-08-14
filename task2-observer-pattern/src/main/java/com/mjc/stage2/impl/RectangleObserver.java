@@ -17,12 +17,14 @@ public class RectangleObserver implements Observer {
     @Override
     public void handleEvent(RectangleEvent event) {
         Rectangle rectangle = event.getSource();
-        int id = rectangle.getId();
-        double sideA = rectangle.getSideA();
-        double sideB = rectangle.getSideB();
-        double perimeter = 2 * (sideA + sideB);
-        double square = sideA * sideB;
+        int rectangleId = rectangle.getId();
+        double sideA = rectangle.getSideA(); // updated sideA value
+        double sideB = rectangle.getSideB(); // updated sideB value
+
+        double square = sideA * sideB; // calculate square
+        double perimeter = 2 * (sideA + sideB); // calculate perimeter
+
         RectangleValues values = new RectangleValues(square, perimeter);
-        warehouse.put(id, values);
+        warehouse.put(rectangleId, values); // update warehouse with new values
     }
 }

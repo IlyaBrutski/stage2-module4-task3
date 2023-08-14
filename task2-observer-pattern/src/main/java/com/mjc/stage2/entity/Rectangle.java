@@ -11,13 +11,14 @@ public class Rectangle implements Observable {
     private int id;
     private double sideA;
     private double sideB;
-    private List<Observer> observers = new ArrayList<>();
+    private List<Observer> observers;
 
     // Write your code here!
     public Rectangle(int id, double sideA, double sideB) {
         this.id = id;
         this.sideA = sideA;
         this.sideB = sideB;
+        this.observers = new ArrayList<>();
     }
 
     public int getId() {
@@ -35,6 +36,7 @@ public class Rectangle implements Observable {
     public void setSideA(double sideA) {
         this.sideA = sideA;
         // Write your code here!
+        notifyObserver();
     }
 
     public double getSideB() {
@@ -44,6 +46,7 @@ public class Rectangle implements Observable {
     public void setSideB(double sideB) {
         this.sideB = sideB;
         // Write your code here!
+        notifyObserver();
     }
 
     // Write your code here!
@@ -58,7 +61,8 @@ public class Rectangle implements Observable {
     }
 
     @Override
-    public void notifyObserver(RectangleEvent event) {
+    public void notifyObserver() {
+        RectangleEvent event = new RectangleEvent(this);
         for (Observer observer : observers) {
             observer.handleEvent(event);
         }
